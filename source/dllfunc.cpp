@@ -1,19 +1,18 @@
 #include "dllfunc.h"
 
-template<typename T>
-dllfunc<T>::dllfunc(/* args */)
-{
-    std::cout << "This is the default initialize." << std::endl;
+
+
+int memberSize(){
+    std::cout << "This is the memberSize function" << std::endl;
+    return 0;
 }
 
-template<typename T>
-dllfunc<T>::~dllfunc()
-{
-    std::cout << "This is the default destructor" << std::endl;
+int Max(){
+    std::cout << "This is the Max() function" << std::endl;
+
+    return 15;
 }
 
-template<typename T>
-int dllfunc<T>::memberSize(){
-    return sizeof(this->m_member);
-    
+void Test(){
+    std::cout << "this is the fucking test " << std::endl;
 }
