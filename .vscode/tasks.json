@@ -8,14 +8,13 @@
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
-				"${file}",
+				"${fileDirname}/*.cpp",
+				"-shared",
 				"-I",
 				"${workspaceFolder}/include",
-				//"-fPIC",
-				"-shared",
 				"-o",
 				"${workspaceFolder}/output/Debug/${fileBasenameNoExtension}.dll",
-				""
+				"-fPIC"
 			],
 			"options": {
 				"cwd": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin"
@@ -23,7 +22,10 @@
 			"problemMatcher": [
 				"$gcc"
 			],
-			"group": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
 			"detail": "编译器: D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin/g++.exe"
 		}
 	]
