@@ -10,26 +10,29 @@ typedef int*(*ipFunc)(void*);
 
 typedef HANDLE (*hpFunc)(void*);
 
-template<class T>
-class dllfunc
-{
-private:
-    T m_member;
+#define _cplusplus
 
-    T m_num;
-public:
-    dllfunc(/* args */);
-    ~dllfunc();
+#define DLLFUN_IMPORTS
 
-    dllfunc(T& member);
+#ifdef DLLFUN_IMPORTS
 
-    T Min();
+#define DLLFUN_API __declspec(dllimport)
 
-    T Max();
+#else
 
-    int memberSize();
-};
+#define DLLFUN_API __declspec(dllexport)
+                                        //For linux .Keep it blank In WIN32 environment. 
+
+#endif
 
 
+  extern "C" DLLFUN_API int Min();
+
+  extern "C" DLLFUN_API int Max();
+
+  extern "C" DLLFUN_API int memberSize();
+
+
+extern "C" DLLFUN_API void Test(void);
 
 #endif
