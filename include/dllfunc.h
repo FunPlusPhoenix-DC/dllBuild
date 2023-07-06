@@ -10,9 +10,19 @@ typedef int*(*ipFunc)(void*);
 
 typedef HANDLE (*hpFunc)(void*);
 
-#define _cplusplus
+/*#ifdef __cplusplus 
+extern "C" { 
+#endif
 
-#define DLLFUN_IMPORTS
+//一段代码
+
+#ifdef __cplusplus 
+} 
+#endif 
+
+#define _cplusplus*/
+
+#define DLLFUN_EXPORTS
 
 #ifdef DLLFUN_IMPORTS
 
@@ -25,14 +35,24 @@ typedef HANDLE (*hpFunc)(void*);
 
 #endif
 
+class DLLFUN_API dllfunc    //If want to include members and method into a class. Class declared like this .
+{
+private:
+  /* data */
+public:
+  dllfunc(/* args */);
+  ~dllfunc();
 
-  extern "C" DLLFUN_API int Min();
+  int Min();
 
-  extern "C" DLLFUN_API int Max();
+  int Max();
 
-  extern "C" DLLFUN_API int memberSize();
+  int memberSize();
 
+  void Test(void);
 
-extern "C" DLLFUN_API void Test(void);
+  int regedit;
+};
+
 
 #endif
