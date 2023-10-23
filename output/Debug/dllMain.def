@@ -1,0 +1,11 @@
+EXPORTS
+    _Z10outOfClassv @1
+    _ZN7dllfunc10memberSizeEv @2
+    _ZN7dllfunc3MaxEv @3
+    _ZN7dllfunc4TestEv @4
+    _ZN7dllfuncC1Ev @5
+    _ZN7dllfuncC2Ev @6
+    _ZN7dllfuncD1Ev @7
+    _ZN7dllfuncD2Ev @8
+    createDllClass @9
+    disposeDllClass @10

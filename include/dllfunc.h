@@ -2,6 +2,8 @@
 
 #define _DLLFUNC_H_
 
+#endif
+
 #include <iostream>
 
 #include <Windows.h>
@@ -14,7 +16,7 @@ typedef HANDLE (*hpFunc)(void*);
 extern "C" { 
 #endif
 
-//一段代码
+
 
 #ifdef __cplusplus 
 } 
@@ -35,12 +37,18 @@ extern "C" {
 
 #endif
 
+#ifdef __cplusplus
+
+extern "C"{
+  
+#endif
 class DLLFUN_API dllfunc    //If want to include members and method into a class. Class declared like this .
 {
 private:
   /* data */
 public:
   dllfunc(/* args */);
+
   ~dllfunc();
 
   int Min();
@@ -54,5 +62,11 @@ public:
   int regedit;
 };
 
+DLLFUN_API void* createDllClass();
 
+DLLFUN_API int disposeDllClass(void* lpclass);
+
+#ifdef __cplusplus
+}
 #endif
+

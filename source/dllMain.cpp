@@ -2,7 +2,7 @@
 
 bool APIENTRY DllMain(
     HMODULE hModule,
-    DWORD ul_reason_for_call,
+    DWORD ul_reason_for_call,__stdcall
     LPVOID lpReversed
                      )
 {

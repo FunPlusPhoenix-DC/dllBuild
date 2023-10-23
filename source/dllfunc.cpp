@@ -1,6 +1,8 @@
 #include "dllfunc.h"
 
- dllfunc::dllfunc(/* args */)
+
+
+dllfunc::dllfunc(/* args */)
 {
     std::cout << "It's construct function" << std::endl;
 
@@ -30,4 +32,25 @@ void dllfunc::Test(){
     regedit = 2023;
 
     std::cout << regedit << std::endl;
+}
+
+DLLFUN_API void __stdcall outOfClass(){
+  std::cout << "this func is out of class" << std::endl;
+}
+
+DLLFUN_API void* createDllClass(){
+    return new dllfunc;
+}
+
+DLLFUN_API int disposeDllClass(void* lpclass){
+    dllfunc* temp = static_cast<dllfunc*>(lpclass);
+    if(temp != NULL){
+        delete temp;
+
+        temp = NULL;
+
+        return 0;
+    }
+    else
+        return -1;
 }

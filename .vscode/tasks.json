@@ -7,14 +7,17 @@
 			"command": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin/g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
-				"-g",
+				"-g",  //-g is debug output.Erase this options in order to build in release mode.
 				"${fileDirname}/*.cpp",
 				"-shared",
 				"-I",
 				"${workspaceFolder}/include",
 				"-o",
 				"${workspaceFolder}/output/Debug/${fileBasenameNoExtension}.dll",
-				"-fPIC"
+				"-Wl,--out-implib,${workspaceFolder}/output/Debug/${fileBasenameNoExtension}.lib", //附带生成lib
+				"-Wl,--output-def,${workspaceFolder}/output/Debug/${fileBasenameNoExtension}.def", //附带生成def
+				"-fPIC",
+				
 			],
 			"options": {
 				"cwd": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin"
